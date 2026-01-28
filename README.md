@@ -77,7 +77,8 @@ Model osiągnął następujące wyniki na zbiorze testowym:
 * **F1-Score:** 0.93
 Szczegółowa analiza znajduje się w pliku `sprawozdanie.pdf`.
 
-<br>## 🧪 Testowanie modelu bazowego
+
+## 🧪 Testowanie modelu bazowego
 
 Instrukcja dotyczy pierwszego modelu (`models/my_hate_model`), trenowanego na podstawowym zbiorze danych.
 
