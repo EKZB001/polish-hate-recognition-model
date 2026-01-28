@@ -1,0 +1,34 @@
+# --- Systemowe i Pythonowe śmieci ---
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.DS_Store
+
+# --- Dane (Nie wrzucamy dużych datasetów) ---
+data/raw/
+data/processed/
+data/processed_ptaszynski/
+
+# Zostawiamy tylko folder z próbką (wymagane przez projekt)
+!data/samples/
+
+# --- Modele (Za duże na GitHub) ---
+models/
+*.pt
+*.bin
+*.safetensors
+*.zip
+
+# --- Logi i Raporty tymczasowe ---
+logs/
+logs_v2/
+*.pdf
+zapis_konsoli_treningu.txt
+
+# Jeśli chcesz zachować wygenerowane wykresy w repo, usuń linię poniżej:
+# reports/
+
+# --- Inne ---
+.vscode/
+.idea/
