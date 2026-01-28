@@ -77,29 +77,50 @@ Model osiągnął następujące wyniki na zbiorze testowym:
 * **F1-Score:** 0.93
 Szczegółowa analiza znajduje się w pliku `sprawozdanie.pdf`.
 
-## 🧪 Testowanie modelu bazowego
+<br>## 🧪 Testowanie modelu bazowego
 
 Instrukcja dotyczy pierwszego modelu (`models/my_hate_model`), trenowanego na podstawowym zbiorze danych.
 
-### 1. Format danych
+### Format danych
 Wymagany jest plik `.csv` z nagłówkami (kodowanie UTF-8).
 * **Do predykcji:** Wymagana kolumna `text`.
 * **Do ewaluacji:** Wymagane kolumny `text` oraz `label` (0 = neutralny, 1 = hejt).
 
-### 2. Uruchomienie predykcji (Inference)
+### Metoda 1: Uruchomienie z terminala (Zalecana)
+Możesz podać ścieżkę do swojego pliku jako argument, nie zmieniając kodu:
+
+#### Uruchomienie predykcji (Inference)
 Użyj tego polecenia, aby model ocenił nowe zdania (używamy skryptu `infer.py` z folderu `src`):
 
 ```bash
-python src/infer.py \
-  --model_path models/my_hate_model \
-  --input_file data/moje_testy.csv \
-  --output_file results/wyniki_v1.csv
+python src/infer.py --input_file data/moje_testy.csv \--output_file results/wyniki_v1.csv
 ```
 
-### 3. Uruchomienie ewaluacji (Evaluate)
+#### Uruchomienie ewaluacji (Evaluate)
 Użyj tego polecenia, aby sprawdzić skuteczność pierwszego modelu na zbiorze testowym:
 ```bash
-python src/evaluate.py \
-  --model_path models/my_hate_model \
-  --test_file data/test.csv
+python src/evaluate.py --test_file data/moje_wlasne_dane.csv
 ```
+
+### Metoda 2: Edycja ścieżki w pliku (Szybka)
+Można na sztywno wpisać ścieżkę do swojego pliku bezpośrednio w kodzie Pythona.
+
+* Otwórz plik `src/evaluate.py` (lub `src/infer.py`) w edytorze kodu.
+* Znajdź fragment odpowiedzialny za wczytywanie danych (zazwyczaj na początku funkcji main lub przy `pd.read_csv`).
+* Podmień domyślną ścieżkę (np. `data/test.csv`) na nazwę Twojego pliku.
+
+Przykład zmiany w kodzie:
+
+```
+# Szukaj takiej linii:
+test_df = pd.read_csv("data/test.csv")
+
+# I zmień ją na:
+test_df = pd.read_csv("data/moje_testy.csv")  # <-- Twój plik
+```
+
+* Zapisz plik i uruchom skrypt komendą: `python src/evaluate.py` (bez argumentów).
+
+
+
+
