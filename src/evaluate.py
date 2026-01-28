@@ -62,7 +62,7 @@ def evaluate():
     print(f"Prawdziwy Neutralny: {cm[0][0]} | Fałszywy Hejt (Błąd): {cm[0][1]}")
     print(f"Fałszywy Neutralny (Błąd): {cm[1][0]} | Prawdziwy Hejt: {cm[1][1]}")
 
-    # Opcjonalnie: Zapis macierzy do pliku (do wklejenia w raport)
+    # Zapis macierzy do pliku (do wklejenia w raport)
     plt.figure(figsize=(8, 6))
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=["Neutralny", "Hejt"], yticklabels=["Neutralny", "Hejt"])
     plt.ylabel('Prawdziwa etykieta')

@@ -6,6 +6,7 @@ Celem projektu jest stworzenie modelu opartego o architekturę Transformer (HerB
 ## 📂 Struktura Projektu
 * `data/` - folder na dane (tu znajduje się skrypt i próbki, pełny plik CSV nie jest dołączony do repozytorium)
 * `models/` - tu zostanie zapisany wytrenowany model (folder ignorowany przez git ze względu na rozmiar)
+* `experiments/` - folder na eksperymenty
 * `src/` - kody źródłowe:
   * `download_model.py` - pobieranie i rozpakowywanie modelu
   * `download_data.py` - pobieranie i rozpakowywanie danych

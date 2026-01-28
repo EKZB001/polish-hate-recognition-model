@@ -23,8 +23,6 @@ models/
 # --- Logi i Raporty tymczasowe ---
 logs/
 logs_v2/
-*.pdf
-zapis_konsoli_treningu.txt
 
 # Jeśli chcesz zachować wygenerowane wykresy w repo, usuń linię poniżej:
 # reports/

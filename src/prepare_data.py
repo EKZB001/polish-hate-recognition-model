@@ -3,7 +3,6 @@ from sklearn.model_selection import train_test_split
 import os
 
 # --- KONFIGURACJA ---
-# Upewnij się, że nazwa pliku tutaj zgadza się z tym, co masz w folderze
 RAW_DATA_PATH = 'data/raw/BAN-PL.csv' 
 OUTPUT_DIR = 'data/processed'
 SAMPLE_DIR = 'data/samples'
@@ -17,7 +16,7 @@ def clean_text(text):
 def prepare_data():
     print(">>> Wczytywanie danych...")
     
-    # 1. Wczytanie danych (Twój plik to CSV rozdzielany przecinkami)
+    # 1. Wczytanie danych
     try:
         df = pd.read_csv(RAW_DATA_PATH)
     except FileNotFoundError:
@@ -28,10 +27,10 @@ def prepare_data():
     print("Kolumny w pliku:", df.columns.tolist())
 
     # 2. Czyszczenie i mapowanie nazw
-    # Twoje kolumny to 'Text' i 'Class'. Zmienimy je na standardowe 'text' i 'label'
+    # Zamiana kolumn na standardowe 'text' i 'label'
     df = df.rename(columns={'Text': 'text', 'Class': 'label'})
     
-    # Wybieramy tylko te dwie kolumny, 'id' jest nam niepotrzebne do treningu
+    # Wybieramy tylko te dwie kolumny, 'id' jest niepotrzebne do treningu
     df = df[['text', 'label']]
 
     # Usuwamy puste wiersze
@@ -66,7 +65,7 @@ def prepare_data():
     
     # Próbka dla prowadzącego
     os.makedirs(SAMPLE_DIR, exist_ok=True)
-    sample = df.head(5)
+    sample = df.head(10)
     sample.to_csv(f'{SAMPLE_DIR}/sample_io.csv', index=False)
     print(">>> Gotowe! Pliki zapisane w data/processed")
 

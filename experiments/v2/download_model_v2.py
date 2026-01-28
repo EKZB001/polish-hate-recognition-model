@@ -3,9 +3,9 @@ import gdown
 import zipfile
 
 # --- KONFIGURACJA ---
-FILE_ID = '1r67RSY3067tc8xEiKUJI198OTqjQ2o9t' 
+FILE_ID = '1-WjJE7Ld9QpXFuy2u6QAd8omJMW45nVN' 
 OUTPUT_FOLDER = 'models'
-ARCHIVE_NAME = 'downloaded_model.zip'
+ARCHIVE_NAME = 'downloaded_model_v2.zip'
 
 def download_model():
     print(f">>> Rozpoczynam pobieranie modelu z Google Drive...")

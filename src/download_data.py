@@ -4,9 +4,6 @@ import zipfile
 import io
 import shutil
 
-# Biblioteka 'requests' jest zewnętrzna - musi być w requirements.txt
-# Biblioteki 'zipfile', 'io', 'shutil' są wbudowane w Pythona (standard)
-
 URL = "https://github.com/ZILiAT-NASK/BAN-PL/blob/main/data/BAN-PL_1.zip?raw=true"
 ZIP_PASSWORD = b"BAN-PL_1"
 RAW_DATA_DIR = 'data/raw'

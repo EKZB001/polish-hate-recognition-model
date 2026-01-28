@@ -2,8 +2,8 @@ import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch.nn.functional as F
 
-# Ścieżka do wytrenowanego modelu
-MODEL_PATH = "models/my_hate_model"
+# Ścieżka do Twojego wytrenowanego modelu
+MODEL_PATH = "models/my_hate_model_v2"
 
 def predict(text, model, tokenizer, device):
     # Tokenizacja
@@ -12,7 +12,7 @@ def predict(text, model, tokenizer, device):
     # Przeniesienie na GPU (jeśli dostępne)
     inputs = {k: v.to(device) for k, v in inputs.items()}
     
-    # Predykcja
+    # Predykcja (wyłączenie liczenia gradientów dla szybkości)
     with torch.no_grad():
         outputs = model(**inputs)
     
@@ -29,7 +29,7 @@ def main():
     print(">>> Ładowanie modelu... (może chwilę potrwać)")
     
     # Ładowanie modelu i tokenizera
-    # use_safetensors=True jest ważne, bo tak zapisaliśmy model
+    # use_safetensors=True jest ważne, bo tak jest zapisany model
     try:
         tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
         model = AutoModelForSequenceClassification.from_pretrained(MODEL_PATH, use_safetensors=True)
@@ -56,7 +56,7 @@ def main():
 
         label_id, score = predict(text, model, tokenizer, device)
         
-        # Interpretacja wyniku (0 = Neutralny, 1 = Hejt - wg naszych danych)
+        # Interpretacja wyniku (0 = Neutralny, 1 = Hejt - wg danych)
         label_name = "HEJT" if label_id == 1 else "NEUTRALNY"
         color = "\033[91m" if label_id == 1 else "\033[92m" # Czerwony dla hejtu, zielony dla ok
         reset = "\033[0m"
