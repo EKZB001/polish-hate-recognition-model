@@ -25,9 +25,10 @@ Zalecane jest użycie Python 3.10 lub 3.11.
 ```
 pip install -r requirements.txt
 ```
+> [!NOTE]
+> **Uwaga dot. GPU:** Aby znacznie przyspieszyć trening, zalecane jest posiadanie wersji PyTorch z obsługą CUDA. Domyślna instalacja z `requirements.txt` może zainstalować wersję CPU. Aby wymusić wersję GPU:
+>`pip install torch --index-url https://download.pytorch.org/whl/cu124`
 
-**Uwaga dot. GPU:** Aby znacznie przyspieszyć trening, zalecane jest posiadanie wersji PyTorch z obsługą CUDA. Domyślna instalacja z `requirements.txt` może zainstalować wersję CPU. Aby wymusić wersję GPU:
-`pip install torch --index-url https://download.pytorch.org/whl/cu124`
 
 ### 2. Przygotowanie danych
 Pobierz i rozpakuj dane:
