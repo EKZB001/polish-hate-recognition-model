@@ -4,9 +4,13 @@ import zipfile
 import io
 import shutil
 
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
 URL = "https://github.com/ZILiAT-NASK/BAN-PL/blob/main/data/BAN-PL_1.zip?raw=true"
 ZIP_PASSWORD = b"BAN-PL_1"
-RAW_DATA_DIR = 'data/raw'
+
+RAW_DATA_DIR = os.path.join(PROJECT_ROOT, 'data', 'raw')
 TARGET_FILENAME = 'BAN-PL.csv'
 
 def download_and_extract():

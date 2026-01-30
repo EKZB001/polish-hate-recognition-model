@@ -3,9 +3,11 @@ from sklearn.model_selection import train_test_split
 import os
 
 # --- KONFIGURACJA ---
-RAW_DATA_PATH = 'data/raw/BAN-PL.csv' 
-OUTPUT_DIR = 'data/processed'
-SAMPLE_DIR = 'data/samples'
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
+RAW_DATA_PATH = os.path.join(PROJECT_ROOT, 'data', 'raw', 'BAN-PL.csv') 
+OUTPUT_DIR = os.path.join(PROJECT_ROOT, 'data', 'processed')
 
 def clean_text(text):
     """Usuwa zbędne białe znaki (entery, tabulatory, spacje na końcach)."""
@@ -62,11 +64,7 @@ def prepare_data():
     train_df.to_csv(f'{OUTPUT_DIR}/train.csv', index=False)
     val_df.to_csv(f'{OUTPUT_DIR}/val.csv', index=False)
     test_df.to_csv(f'{OUTPUT_DIR}/test.csv', index=False)
-    
-    # Próbka dla prowadzącego
-    os.makedirs(SAMPLE_DIR, exist_ok=True)
-    sample = df.head(10)
-    sample.to_csv(f'{SAMPLE_DIR}/sample_io.csv', index=False)
+
     print(">>> Gotowe! Pliki zapisane w data/processed")
 
 if __name__ == "__main__":

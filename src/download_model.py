@@ -3,8 +3,11 @@ import gdown
 import zipfile
 
 # --- KONFIGURACJA ---
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
+
 FILE_ID = '1r67RSY3067tc8xEiKUJI198OTqjQ2o9t' 
-OUTPUT_FOLDER = 'models'
+OUTPUT_FOLDER = os.path.join(PROJECT_ROOT, 'models')
 ARCHIVE_NAME = 'downloaded_model.zip'
 
 def download_model():
